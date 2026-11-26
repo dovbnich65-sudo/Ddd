@@ -1,1 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Для тебе 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;font-family:Inter,system-ui,sans-serif;color:#3b0d24;background:linear-gradient(155deg,#ffe3ed,#ffd4e5 40%,#ffe9dd 78%,#ffc6de);overflow-x:hidden}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{display:flex;flex-direction:column;padding:14px;max-width:440px;margin:0 auto}
+#bar{height:8px;border-radius:9px;background:#fff9;overflow:hidden;margin-bottom:10px}
+#fill{height:100%;width:5%;background:linear-gradient(90deg,#f472b6,#e11d74);transition:width .5s}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.card{background:#ffffffc7;backdrop-filter:blur(14px);border:1.5px solid #fff;border-radius:28px;padding:22px;text-align:center;box-shadow:0 18px 40px -12px #db277733;animation:pop .45s cubic-bezier(.22,1.25,.36,1)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.95)}}
+h2{margin:6px 0 8px;font-size:22px;font-weight:800}p{margin:0 0 14px;font-size:15px;line-height:1.5}
+.big{font-size:44px}
+.btn{width:100%;padding:15px;border:0;border-radius:18px;color:#fff;font:800 16px Inter;background:linear-gradient(135deg,#ff4d94,#e11d74);box-shadow:0 10px 22px -6px #e11d7466;cursor:pointer;margin-top:8px;transition:transform .15s}
+.btn:active{transform:scale(.96)}.btn:disabled{opacity:.4}
+.alt{background:#fff;color:#9d174d;border:1.5px solid #fbcfe8;box-shadow:none}
+.opt{display:block;width:100%;text-align:left;padding:12px;margin:7px 0;border-radius:16px;border:1.5px solid #fbcfe8;background:#fff;font:600 14px Inter;color:#500724;cursor:pointer}
+.opt.on{border-color:#ec4899;background:#ffe4f0}
+input,textarea{width:100%;padding:13px;border-radius:14px;border:1.5px solid #f9a8d4;font:600 18px Inter;text-align:center;outline:0}
+textarea{font-size:14px;text-align:left}
+.msg{min-height:20px;font-size:13px;font-weight:700;color:#be185d;margin-top:8px}
+.fl{position:fixed;pointer-events:none;z-index:1;bottom:-40px;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-115vh) rotate(300deg);opacity:0}}
+.bu{position:fixed;pointer-events:none;z-index:60;animation:bu .8s ease-out forwards}
+@keyframes bu{to{transform:translate(var(--x),var(--y));opacity:0}}
+.sc{position:relative;height:150px;border-radius:20px;overflow:hidden;border:2px solid #f9a8d4}
+.sc>div{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:12px;background:linear-gradient(135deg,#fff1f2,#fce7f3)}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.env{font-size:90px;cursor:pointer;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.letter{text-align:left;white-space:pre-wrap;font-size:15px;line-height:1.65;max-height:55vh;overflow:auto;background:#fffaf5;border-radius:18px;padding:16px;border:1px solid #fbcfe8}
+.tk{border:2px dashed #ec489978;border-radius:20px;padding:14px;text-align:left;font-size:14px;background:#fff8fb}
+.tk b{display:block;font-size:10px;text-transform:uppercase;color:#db2777;margin-top:8px}
+select{flex:1;min-width:0;padding:13px 6px;border-radius:14px;border:1.5px solid #f9a8d4;font:700 15px Inter;background:#fff;color:#500724}
+.big{animation:bob 2.2s ease-in-out infinite}
+.btn:not(:disabled){animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 12px 30px -4px #e11d74aa;transform:scale(1.025)}}
+.btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,#fff7,transparent);transform:skewX(-20deg);animation:sh 3s infinite}
+@keyframes sh{to{left:130%}}
+body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;pointer-events:none;animation:dr 9s ease-in-out infinite alternate}
+body::before{width:260px;height:260px;background:#ff8ab6;top:-60px;left:-60px}
+body::after{width:280px;height:280px;background:#ffb59c;bottom:-70px;right:-60px;animation-delay:-4s}
+@keyframes dr{to{transform:translate(60px,80px) scale(1.2)}}
+.meter{height:22px;border-radius:12px;background:#fce7f3;overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#f472b6,#e11d74,#f59e0b)}
+.shake{animation:shk .3s 2}@keyframes shk{25%{transform:translate(-4px,2px) rotate(-1deg)}75%{transform:translate(4px,-2px) rotate(1deg)}}
+.pc{font-size:56px;font-weight:900;color:#e11d74}
+.beat{animation:beat .8s infinite}@keyframes beat{30%{transform:scale(1.25)}60%{transform:scale(.95)}}
+.rn{position:fixed;top:-40px;pointer-events:none;z-index:70;animation:dn linear forwards}@keyframes dn{to{transform:translateY(112vh) rotate(360deg)}}
+</style></head><body>
+<div id="bar"><div id="fill"></div></div>
+<main id="s"></main>
+<script>
+'use strict';
+const $=s=>document.querySelector(s), S=$('#s');
+const A={fmt:'',score:0,react:'',wish:''};
+let i=0,tries=0,dodge=0,opened=false;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+setInterval(()=>{if(document.hidden)return;const e=document.createElement('span');e.className='fl';
+e.textContent=['🩷','🌸','💖','🌷','✨'][Math.floor(rnd(0,5))];e.style.left=rnd(2,92)+'vw';
+e.style.fontSize=rnd(16,30)+'px';e.style.animationDuration=rnd(7,12)+'s';document.body.appendChild(e);
+setTimeout(()=>e.remove(),12500)},800);
+function burst(e,n=7){const x=e.clientX||innerWidth/2,y=e.clientY||innerHeight/2;
+for(let k=0;k<n;k++){const b=document.createElement('span'),a=k/n*6.28;b.className='bu';b.textContent=['💖','🌸','✨','🩷'][k%4];
+b.style.left=x+'px';b.style.top=y+'px';b.style.setProperty('--x',Math.cos(a)*rnd(40,90)+'px');b.style.setProperty('--y',Math.sin(a)*rnd(40,90)+'px');
+document.body.appendChild(b);setTimeout(()=>b.remove(),850)}
+try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}}
+function rain(n=30){for(let k=0;k<n;k++)setTimeout(()=>{const e=document.createElement('span');e.className='rn';e.textContent=['💖','🌸','🩷','✨','🌷','💘'][k%6];e.style.left=rnd(0,95)+'vw';e.style.fontSize=rnd(18,36)+'px';e.style.animationDuration=rnd(2.5,4.5)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4700)},k*60)}
+document.addEventListener('click',e=>{if(!e.target.closest('input,textarea,canvas,select'))burst(e,6)});
 
+const hug=['Ти гарна — і це не про «ідеальні фото»','З тобою легко з першої розмови','Тобі дуже пасує гарний настрій'];
+const hugT=['У тебе живий погляд і легкість, які не поставиш на паузу. Хочеться дивитись ще раз.','Можна говорити про серйозне, а за хвилину сміятись з абсурду. Час летить непомітно.','Хочеться, щоб у тебе було менше «треба терміново» і більше моментів видихнути й усміхнутись.'];
+const LETTER=`Любимка моя,
+
+Я довго думав, як сказати це так, щоб не вийшло банально. Тож скажу просто: дякую, що ти в мене є.
+
+Дякую за твою усмішку, яка вмикає мені настрій навіть у найсірший день. За те, що з тобою можна бути собою. За твоє тепло, яке я відчуваю навіть через екран.
+
+З 09.11.2026 мій світ став трішки яскравішим. Я не обіцяю бути ідеальним, але обіцяю старатися — для тебе і для нас.
+
+Дякую, що ти така, яка є. Ти моя найкраща випадковість. 🌸
+
+Твій ❤️`;
+
+const steps=[
+ {l:'Старт ✨',r:()=>card('🌸','Доброго ранку, моя маленька','Дивись, що я тобі підготував 💖 Тицяй кнопку — попереду загадка, сюрпризи і вибір нашого побачення.','Тицяй 💖')},
+ ...hug.map((t,k)=>({l:`${k+1} з 3`,r:()=>card(['✨','🦋','🤗'][k],t,hugT[k])})),
+ {l:'Загадка 🔐',r:riddle,gate:1},
+ {l:'По-людськи',r:apology,gate:1},
+ {l:'Сюрприз 🎟️',r:scratch,gate:1},
+ {l:'Побачення',r:dateStep,gate:1},
+ {l:'Оціночка',r:rate,gate:1},
+ {l:'Сумісність 💘',r:compat,gate:1},
+ {l:'Фінал',r:wish,gate:1},
+ {l:'Квиток 🎫',r:ticket},
+ {l:'Лист 💌',r:letter,gate:1}
+];
+function nav(next=true,extra=''){return `<button class="btn" id="nx" ${extra}>${next===true?'Далі 💖':next}</button>`}
+function card(em,t,p,bt=true){S.innerHTML=`<div class="card"><div class="big">${em}</div><h2>${t}</h2><p>${p}</p>${nav(bt)}</div>`;$('#nx').onclick=e=>{burst(e);go(1)}}
+function go(d){i=Math.max(0,Math.min(steps.length-1,i+d));$('#fill').style.width=Math.round((i+1)/steps.length*100)+'%';steps[i].r()}
+
+function riddle(){
+ S.innerHTML=`<div class="card"><div class="big">🔐</div><h2>Загадка-пропуск</h2>
+ <p>Щоб відкрити далі, згадай <b>дату, коли ми почали зустрічатися</b></p>
+ <div style="display:flex;gap:8px"><select id="dd"><option value="">День</option>${[...Array(31)].map((_,k)=>`<option>${k+1}</option>`).join('')}</select><select id="mm"><option value="">Місяць</option>${['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'].map((n,k)=>`<option value="${k+1}">${n}</option>`).join('')}</select><select id="yy"><option value="">Рік</option><option>2025</option><option>2026</option><option>2027</option></select></div>
+ <div class="msg" id="m"></div>${nav('Перевірити 🔑')}<button class="btn alt" id="h" style="display:none">Підказка 💡</button></div>`;
+ const chk=()=>{const d=+$('#dd').value,m=+$('#mm').value,y=+$('#yy').value;
+  if(d===9&&m===11&&y===2026){$('#m').textContent='Так! Ти пам’ятаєш 🥹💖';burst({clientX:innerWidth/2,clientY:innerHeight/2},16);rain(45);setTimeout(()=>go(1),1800)}
+  else{tries++;S.firstChild.classList.add('shake');setTimeout(()=>S.firstChild&&S.firstChild.classList.remove('shake'),700);$('#m').textContent=tries<3?'Ммм, не та дата 🙈 Спробуй ще':'Ну це вже майже образливо 😂 Глянь підказку';if(tries>=2)$('#h').style.display='block'}};
+ $('#nx').onclick=chk;
+ $('#h').onclick=()=>{$('#m').textContent='Підказка: це був листопад 2026, а день — менший за 10 🍂'}}
+
+function apology(){
+ S.innerHTML=`<div class="card"><div class="big">🤍</div><h2>Вибачення за все</h2>
+ <p>Вибач за все, де тупив, запізнювався чи міг чимось зачепити. Без пафосу — мені реально не байдуже, як ти почуваєшся поруч.</p>
+ <button class="btn" id="y">Пробачаю 💞</button><button class="btn alt" id="t" style="transition:transform .2s">Ще подумаю 🙈</button><div class="msg" id="m"></div></div>`;
+ $('#y').onclick=e=>{burst(e,14);$('#m').textContent='Дякую, що почула ❤️';setTimeout(()=>go(1),600)};
+ $('#t').onclick=e=>{dodge++;const b=$('#t');if(dodge<3){b.style.transform=`translate(${rnd(-50,50)}px,${rnd(-12,12)}px)`;$('#m').textContent='Кнопка втекла — спробуй ще 🙈'}
+  else{b.style.transform='none';b.textContent='Добре, пробачаю ❤️';b.onclick=ev=>{burst(ev,14);go(1)}}}}
+
+function scratch(){
+ S.innerHTML=`<div class="card"><h2>🎟️ Зітри шар пальцем</h2><p>Маленький карт-бланш на побачення</p>
+ <div class="sc"><div><div style="font-size:26px">🎁✨</div><b>1 бажання на вибір + безліміт обіймів</b><small>Активується на побаченні одним «а давай…»</small></div><canvas id="c"></canvas></div>
+ ${nav('Далі 🎟️','disabled')}</div>`;
+ const c=$('#c'),r=c.getBoundingClientRect(),x=c.getContext('2d');c.width=r.width;c.height=r.height;
+ const g=x.createLinearGradient(0,0,r.width,r.height);g.addColorStop(0,'#f9a8d4');g.addColorStop(1,'#fda4af');x.fillStyle=g;x.fillRect(0,0,r.width,r.height);
+ x.fillStyle='#fff';x.font='bold 14px Inter';x.textAlign='center';x.fillText('Потри тут ✨',r.width/2,r.height/2);
+ const done=()=>{c.style.transition='opacity .4s';c.style.opacity=0;c.style.pointerEvents='none';$('#nx').disabled=false;burst({clientX:innerWidth/2,clientY:innerHeight/2},14)};
+ let d=0;const p=e=>{if(!d)return;const b=c.getBoundingClientRect();x.globalCompositeOperation='destination-out';x.beginPath();x.arc(e.clientX-b.left,e.clientY-b.top,22,0,6.3);x.fill();
+  const a=x.getImageData(0,0,c.width,c.height).data;let t=0,n=0;for(let k=3;k<a.length;k+=64){n++;if(a[k]<128)t++}if(t/n>.4)done()};
+ c.onpointerdown=e=>{d=1;p(e)};c.onpointermove=p;addEventListener('pointerup',()=>d=0);
+ $('#nx').onclick=e=>{burst(e);go(1)}}
+
+function pick(arr,key,after){return arr.map((o,k)=>`<button class="opt ${A[key]===o?'on':''}" data-k="${k}">${o}</button>`).join('')}
+function dateStep(){
+ const o=['🍕 Смачно поїсти піцюююю','🎬 Кіношка','😉 Сам придумай і не кажи мені','☕ Прогулянка + кава чи десерт','🎲 Щось незвичне на вихідних'];
+ S.innerHTML=`<div class="card"><h2>💌 Куди йдемо на побачення?</h2><p>Обирай — підлаштуємо все під тебе</p>${pick(o,'fmt')}${nav()}</div>`;
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=e=>{A.fmt=o[b.dataset.k];burst(e,6);dateStep()});
+ $('#nx').onclick=e=>A.fmt?go(1):($('#nx').textContent='Обери варіант 🌸')}
+
+function rate(){
+ const re=['🔥 Неочікувано і живо — зайшло','😂 Трохи крінжово, але миліше','😎 Добре задумано, вайб приємний','🙂 Норм ідея, старання зараховано'];
+ S.innerHTML=`<div class="card"><h2>😏 Як тобі такий підкат?</h2><div class="big beat" style="font-size:54px">${['🤔','😬','🙈','😅','🙂','😊','😄','🥰','😍','🔥','💖'][A.score||0]}</div><p>Оцінка: <b>${A.score||'—'}</b>/10</p>
+ <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<button class="opt ${A.score===n?'on':''}" style="text-align:center;margin:0;padding:9px" data-n="${n}">${n}</button>`).join('')}</div>
+ ${pick(re,'react')}${nav()}</div>`;
+ document.querySelectorAll('[data-n]').forEach(b=>b.onclick=e=>{A.score=+b.dataset.n;rate();if(A.score>=9)rain(18)});
+ document.querySelectorAll('.opt:not([data-n])').forEach(b=>b.onclick=e=>{A.react=re[b.dataset.k];rate()});
+ $('#nx').onclick=()=>A.score&&A.react?go(1):($('#nx').textContent='Постав оцінку й реакцію 😏')}
+
+function compat(){
+ S.innerHTML=`<div class="card"><div class="big">💘</div><h2>Тест на сумісність</h2><p>Тицьни, і дізнаємось, наскільки ми підходимо одне одному</p><div class="pc" id="pc">0%</div><div class="meter"><i id="mi"></i></div><div class="msg" id="m">Науковий метод, точність 100% 🔬</div><button class="btn" id="go">Тицьни 💞</button></div>`;
+ $('#go').onclick=e=>{const b=$('#go'),card=S.firstChild;b.disabled=true;burst(e,10);let p=0;
+  const M=['Аналізуємо погляди… 👀','Рахуємо обійми… 🤗','Звіряємо смак у піці… 🍕','Перевіряємо вайб… ✨','Результат за межами шкали!! 🚨'];
+  const t=setInterval(()=>{p=Math.min(1000,p+(p<100?4:p<300?20:50));$('#pc').textContent=p+'%';$('#pc').style.fontSize=Math.min(56+p/18,96)+'px';$('#mi').style.width=Math.min(p,100)+'%';
+   $('#m').textContent=M[p<30?0:p<60?1:p<90?2:p<100?3:4];if(p>=100){card.classList.add('shake');burst({clientX:rnd(60,340),clientY:rnd(150,500)},3)}
+   if(p>=1000){clearInterval(t);card.classList.remove('shake');$('#pc').classList.add('beat');$('#m').textContent='Вердикт: ідеальна пара, наука безсила 💖';rain(60);
+    b.disabled=false;b.textContent='Далі 💖';b.onclick=ev=>{burst(ev);go(1)}}},70)}}
+function wish(){
+ S.innerHTML=`<div class="card"><h2>🍓 Твоє побажання</h2><p>Чого хочеш на нашому побаченні? Смаколики, час, будь-яка думка…</p>
+ <textarea id="w" rows="4" placeholder="Напиши тут…"></textarea>${nav('Сформувати квиток 🎫')}</div>`;
+ $('#w').value=A.wish;$('#nx').onclick=e=>{A.wish=$('#w').value.trim();burst(e,16);go(1)}}
+
+function ticket(){
+ S.innerHTML=`<div class="card"><div class="big">🎫💖</div><h2>Квиток на наше побачення</h2><p style="font-size:12px">Зроби скріншот і скинь мені 🌸</p>
+ <div class="tk"><b>Формат</b><span id="t1"></span><b>Оцінка підкату</b><span id="t2"></span><b>Реакція</b><span id="t3"></span><b>Побажання</b><i id="t4"></i></div>${nav('Є ще одне… 💌')}</div>`;
+ $('#t1').textContent=A.fmt;$('#t2').textContent=A.score+'/10';$('#t3').textContent=A.react;$('#t4').textContent='«'+(A.wish||'без побажань')+'»';
+ $('#nx').onclick=e=>{burst(e);go(1)}}
+
+function letter(){
+ S.innerHTML=`<div class="card"><div id="in"><h2>Тобі лист 💌</h2><p>Торкнись конверта, щоб відкрити</p><div class="env" id="e">💌</div></div></div>`;
+ $('#e').onclick=e=>{burst(e,16);rain(40);$('#in').innerHTML='<div class="letter" id="L"></div><p style="margin-top:12px;font-weight:800">Люблю тебе 🩷</p><button class="btn alt" id="r">Прочитати спочатку ↺</button>';
+  $('#r').onclick=()=>{go(-99);tries=0;dodge=0};let k=0;const L=$('#L');
+  const t=setInterval(()=>{L.textContent=LETTER.slice(0,++k);L.scrollTop=L.scrollHeight;if(k%40===0)burst({clientX:rnd(60,340),clientY:rnd(150,500)},3);if(k>=LETTER.length)clearInterval(t)},38)}}
+go(0);
+</script></body></html>
